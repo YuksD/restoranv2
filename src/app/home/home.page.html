@@ -1,20 +1,39 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Header</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+<ion-content class="ion-padding">
+  <ion-searchbar></ion-searchbar>
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://www.hamzaefendi.com.tr/fistikli-sarma-tum-tatlilar-308-29-B.png" />
+    
+    <ion-card-header>
+      <ion-card-title>Reyhan Pastanesi</ion-card-title>
+      <ion-card-subtitle>Coffee, Tatlı</ion-card-subtitle>
+    </ion-card-header>
+      
+      <ion-list lines="none">
+        <ion-item>
+          <ion-text slot="end">
+          Min. Sipariş Tutarı : 30 ₺
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <p>
+            3 km yakında
+          </p>
+          <ion-text slot="end">
+          İşletme Açık 09.00 / 21.00
+          </ion-text>
+        </ion-item>
+
+      </ion-list>
+    
+  </ion-card>
+
 </ion-content>
