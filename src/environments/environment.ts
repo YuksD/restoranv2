@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api_key: 'bW9jay04ODc3NTU2NjExMjEyNGZmZmZmZmJ2',
-  url_base: 'smarty.kerzz.com:4004'
+  url_base: 'https://smarty.kerzz.com:4004'
 };
 
 /*

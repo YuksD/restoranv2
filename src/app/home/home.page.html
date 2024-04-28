@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Header</ion-title>
   </ion-toolbar>
@@ -9,31 +9,110 @@
 <ion-content class="ion-padding">
   <ion-searchbar></ion-searchbar>
 
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://www.hamzaefendi.com.tr/fistikli-sarma-tum-tatlilar-308-29-B.png" />
-    
-    <ion-card-header>
-      <ion-card-title>Reyhan Pastanesi</ion-card-title>
-      <ion-card-subtitle>Coffee, Tatlı</ion-card-subtitle>
-    </ion-card-header>
-      
-      <ion-list lines="none">
-        <ion-item>
-          <ion-text slot="end">
-          Min. Sipariş Tutarı : 30 ₺
-          </ion-text>
-        </ion-item>
-        <ion-item>
-          <p>
-            3 km yakında
-          </p>
-          <ion-text slot="end">
-          İşletme Açık 09.00 / 21.00
-          </ion-text>
-        </ion-item>
+  <ion-button (click)="runPost"> Listele </ion-button>
+  <ion-list *ngFor="let restoran of restoranlar">
+    <ion-item>
+      <h3>{{restoran.title}}</h3>
+    </ion-item>
+  </ion-list> -->
 
-      </ion-list>
-    
-  </ion-card>
 
-</ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Header</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+    <!-- Your search bar goes here -->
+    <ion-searchbar></ion-searchbar>
+  
+    <!-- Display the list of restaurants -->
+    <ion-list>
+      <ion-item *ngFor="let restoran of restoranlar">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-xl="3" size-lg="4" size-md="6" size-sm="12"><ion-card class="res-card cover">
+              <!-- <img alt="Silhouette of mountains" src={{restoran.images[0].base64}} /> -->
+              <div *ngIf="restoran.images && restoran.images.length > 0">
+                <img alt="Silhouette of mountains" [src]="restoran.images[0].base64" />
+              </div>
+              <div *ngIf="!restoran.images || restoran.images.length === 0">
+                Resim bulunamadı
+              </div>
+              
+              <ion-card-header class="p-8">
+                <ion-card-title class= "res-header">{{restoran.title}}</ion-card-title>
+                <ion-card-subtitle class= "res-sub-header">{{restoran.cartegoryId}}</ion-card-subtitle>
+              </ion-card-header>
+                
+                <ion-list lines="none">
+                  <ion-item> 
+                    <ion-text slot="end" class= "res-text-12">
+                    Min. Siparis Tutari : {{restoran.storeInfo.minOrderPrice}} 
+                    </ion-text>
+                  </ion-item>
+                  <ion-item>
+                    <p>
+                      {{ calculateDistance(restoran.location.coordinates[0], restoran.location.coordinates[1]) }} km yakınında
+                    </p>
+                    <ion-text slot="end" class= "res-text-12">
+                      
+                      
+                        {{ restoran.storeInfo.status === 'open' ? 'İşletme Açık' : 'İşletme Kapalı' }}
+                      
+                      {{restoran.storeInfo.workingHours[0].open}} / {{restoran.storeInfo.workingHours[0].close}}
+                    </ion-text>
+                  </ion-item>
+          
+                </ion-list>
+              
+            </ion-card></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  
+
+
+    <!-- Load more button -->
+    <ion-infinite-scroll (ionInfinite)="loadMoreRestoranlar($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Restoranlar Yükleniyor..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-xl="3" size-lg="4" size-md="6" size-sm="12"><ion-card class="res-card cover">
+        <img alt="Silhouette of mountains" src="https://www.hamzaefendi.com.tr/fistikli-sarma-tum-tatlilar-308-29-B.png" />
+        
+        <ion-card-header class="p-8">
+          <ion-card-title class= "res-header">Elif Restoran</ion-card-title>
+          <ion-card-subtitle class= "res-sub-header">Coffee, Tatli</ion-card-subtitle>
+        </ion-card-header>
+          
+          <ion-list lines="none">
+            <ion-item> 
+              <ion-text slot="end" class= "res-text-12">
+              Min. Siparis Tutari : 30 
+              </ion-text>
+            </ion-item>
+            <ion-item>
+              <p>
+                3 km yakinda
+              </p>
+              <ion-text slot="end" class= "res-text-12">
+              İşletme Acik 09.00 / 21.00
+              </ion-text>
+            </ion-item>
+    
+          </ion-list>
+        
+      </ion-card></ion-col>
+      <ion-col size="3" size-lg="4" size-md="6" size-sm="12">2</ion-col>
+      <ion-col size="3" size-lg="4" size-md="6" size-sm="12">3</ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  
+
+<!-- </ion-content> -->

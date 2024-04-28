@@ -27,3 +27,37 @@
 #container a {
   text-decoration: none;
 }
+.res-card{
+height: 300px;
+border-radius: 10px;
+
+}
+.res-card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+}
+.cover img {
+  object-fit: cover;
+}
+.res-header{
+  font-size: 18pt;
+  font-weight: 500;
+}
+.res-sub-header{
+  font-size: 12pt;
+  opacity: 50%;
+  
+}
+.res-text-12{
+  font-size: 12pt;
+  opacity: 50%;
+  font-weight: 400;
+  
+}
+.p-8{
+  padding: 8px;
+}
+.p-5{
+  padding: 5px;
+}
