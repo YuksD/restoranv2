@@ -47,6 +47,7 @@ import { RestoranlarService } from '../api/restoranlar.service';
 import { HttpResponse } from '@angular/common/http';
 import * as geolib from 'geolib';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -61,6 +62,9 @@ export class HomePage implements OnInit {
   constructor(private restoranlarService: RestoranlarService) { }
 
   ngOnInit(): void {
+
+
+
     this.getRestoranlar();
   }
   getRestoranlar(): void {

@@ -61,3 +61,31 @@ border-radius: 10px;
 .p-5{
   padding: 5px;
 }
+.image-container {
+  position: relative;
+}
+
+.rating-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 8px;
+  padding-top: 8px;
+
+}
+
+.rating-background {
+  width: 56px;
+  height: 32px; 
+  color: white;
+  background-color: #B70014; 
+  border-radius: 5px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star {
+  color: white; 
+  margin-right: 4px; 
+}
