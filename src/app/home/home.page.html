@@ -13,18 +13,47 @@
       <h3>{{restoran.title}}</h3>
     </ion-item>
   </ion-list> -->
-
+  <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Header</ion-title>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">Coming soon...</ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Ana Sayfa</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-menu-button color="red" ></ion-menu-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
   <ion-content class="ion-padding">
-    <ion-searchbar></ion-searchbar>
-    <ion-list>
+    <ion-item lines="none">
+        
+        <ion-searchbar color="white" placeholder="Mekan Ara"></ion-searchbar>
+        <div class="ion-searchbar-button-container">
+          <ion-button class="button-right" size="small">
+            <ion-icon slot="icon-only" ios="filter" md="settings-sharp"></ion-icon>
+          </ion-button>
+        </div>
+
+    </ion-item>
+
+
+    <p class="montserrat-semibold">Sonuçlar</p>
+
+    <ion-list lines="none">
       <ion-item *ngFor="let restoran of restoranlar">
-        <ion-grid>
           <ion-row>
             <ion-col size="12" size-xl="3" size-lg="4" size-md="6" size-sm="12">
               <ion-card class="res-card cover">
@@ -37,23 +66,22 @@
                   </div>
                 </div>
                 <div *ngIf="!restoran.images || restoran.images.length === 0">
-                  Resim bulunamadı
                 </div>
-                <ion-card-header class="p-8">
-                  <ion-card-title class= "res-header">{{restoran.title}}</ion-card-title>
+                <ion-card-header>
+                  <ion-card-title class= "res-header montserrat-semibold">{{restoran.title}}</ion-card-title>
                   <ion-card-subtitle class= "res-sub-header">{{restoran.cartegoryId}}</ion-card-subtitle>
                 </ion-card-header>
                 <ion-list lines="none">
-                  <ion-item> 
-                    <ion-text slot="end" class= "res-text-12">
-                    Min. Siparis Tutari : {{restoran.storeInfo.minOrderPrice}} 
-                    </ion-text>
-                  </ion-item>
+                  <div class= "res-text-10">
+                    <p class="p-style text-right  montserrat-bold"> 
+                      Min. Siparis Tutari : ₺{{restoran.storeInfo.minOrderPrice}} 
+                    </p>
+                  </div>
                   <ion-item>
-                    <p>
+                    <p class= "res-text-10 montserrat-semibold">
                       {{ calculateDistance(restoran.location.coordinates[0], restoran.location.coordinates[1]) }} km yakınında
                     </p>
-                    <ion-text slot="end" class= "res-text-12">
+                    <ion-text slot="end" class= "res-text-10">
                         {{ restoran.storeInfo.status === 'open' ? 'İşletme Açık' : 'İşletme Kapalı' }}
                       {{restoran.storeInfo.workingHours[0].open}} / {{restoran.storeInfo.workingHours[0].close}}
                     </ion-text>
@@ -61,7 +89,7 @@
                 </ion-list>
             </ion-card></ion-col>
           </ion-row>
-        </ion-grid>
+        
       </ion-item>
     </ion-list>
     <ion-infinite-scroll (ionInfinite)="loadMoreRestoranlar($event)">
