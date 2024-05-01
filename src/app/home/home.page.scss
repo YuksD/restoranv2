@@ -36,7 +36,7 @@
   font-size: 16pt;
   padding-left: 15px;
   padding-right: 15px;
-  height: 50px;
+  height: 40px;
 }
 .res-sub-header{
   font-size: 12pt;
@@ -44,7 +44,10 @@
 }
 
 .res-text-10{
+  margin-bottom: 0px;
+  margin-top: 0px;
   font-size: 10pt;
+  height: 14px;
 }
 .opacity-50{
   opacity: 50%;
@@ -90,9 +93,12 @@ ion-card-header{
   padding: 0px;
 }
 
+.sc-ion-searchbar-md-h {
+  --box-shadow: none ;
+}
+
 ion-searchbar {
   min-height: 51px;
-  box-shadow: 0 1px 64px rgba(0, 0, 0, 0.135);
   border-radius: 10px;
   padding: 0px;
   position: relative;
@@ -104,12 +110,14 @@ ion-searchbar {
   right: 20px;
   transform: translateY(-50%);
 }
+
 .open{
   color:#34C47C;
 }
 .close{
   color:#B70014;
 }
+
 .pl-0{
   padding-left: 0px;
 }
@@ -119,6 +127,7 @@ ion-searchbar {
 .pr-0{
   padding-right: 0px;
 }
+
 .box-shadow{
  box-shadow:  0px 10px 25px 0px rgba(1, 8, 36, 0.1019607843);
 }
